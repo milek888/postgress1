@@ -9,6 +9,7 @@ spring:
   jpa:
     show-sql: true
     database: postgresql
+#    driverClassName: org.postgresql.Driver
 #    generate-ddl: true  <--- todo mie checmy zeby hibernate nam wygenerowal automatycznie tylko robi to flyway
 #    hibernate:
 #      ddl-auto: create
@@ -23,7 +24,7 @@ spring:
 #    user: postgres
 #    password: postgres
 
-logging:
+logging: # todo obczaic co jest potrzebne do logowania
   level:
     org.hibernate.SQL: INFO
 #    org.hibernate.type.descriptor.sql: TRACE
