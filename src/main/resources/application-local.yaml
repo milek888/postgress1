@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  flyway:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: postgres
+
+logging:
+  level:
+    root: INFO
+    springframework.transaction.interceptor: TRACE # bardzo fajne do sledzienie transakcji todo spr czy dziala
+
+
+

@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    database: postgresql
+#    generate-ddl: true  <--- todo mie checmy zeby hibernate nam wygenerowal automatycznie tylko robi to flyway
+#    hibernate:
+#      ddl-auto: create
+
+  flyway:
+    baseline-on-migrate: true
+    locations:
+      - classpath:db/baseline
+      - classpath:db/migration/current
+    baseline-description: "Baseline 2"
+#    url: jdbc:postgresql://localhost:5432/postgres <--- todo dla flywaya nie dajemy parametrow polaczenia do wspolnej konfiguracji bo testy beda chcialy wziasc stad. Jak tu sie nie umiesci tego to testy wezma z test containera wiec musimy to przeniesc do application-local.yaml
+#    user: postgres
+#    password: postgres
+
+logging:
+  level:
+    org.hibernate.SQL: INFO
+#    org.hibernate.type.descriptor.sql: TRACE
+#    org.hibernate: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.orm.jdbc.bind: TRACE
+
+
+
