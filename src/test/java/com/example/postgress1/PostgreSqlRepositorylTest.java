@@ -33,7 +33,7 @@ TO TEZ DZIALA JAK SIE DA W DataBaseConfiguration2 @ComponentScan(basePackages = 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(properties = "spring.flyway.clean-disabled=false") // 1) @TestPropertySource pozwala na nadpisanie dowolnych propertiesow. 2) musimy dac na false bo flyway domyslnie ustawia to na true zeby sie zabepieczyc przed wymazaniem produkcji
 @ActiveProfiles("test")
-public class PostgreSqlRepositorylTest {
+public class PostgreSqlRepositorylTest extends PostgresTestContainer {
 
     @Autowired
     Flyway flyway;

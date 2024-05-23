@@ -1,15 +1,15 @@
 CREATE TABLE departments (
-  id INTEGER NOT NULL,
+   id VARCHAR(50) NOT NULL,
    name VARCHAR(255),
    CONSTRAINT pk_departments PRIMARY KEY (id)
 );
 
 CREATE TABLE students (
-  id INTEGER NOT NULL,
+   id VARCHAR(50) NOT NULL,
    name VARCHAR(255),
    second_name VARCHAR(255),
    age INTEGER,
-   department_id INTEGER,
+   department_id VARCHAR(50),
    CONSTRAINT pk_students PRIMARY KEY (id)
 );
 

@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.example.postgress1.boundry.StudentFactory.*;
+
+import static com.example.postgress1.boundry.StudentFactory.toStudentDocument;
 
 @Slf4j
 @RestController
@@ -18,7 +19,7 @@ public class StudentController {
     private final StudentRepository studentRepository;
 
     @GetMapping("/{id}")
-    StudentDocument getStudent(@PathVariable int id) {
+    StudentDocument getStudent(@PathVariable String id) {
         var student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
         return toStudentDocument(student);
     }

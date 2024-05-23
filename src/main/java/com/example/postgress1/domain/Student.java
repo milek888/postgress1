@@ -16,7 +16,7 @@ public class Student {
 
     @Id
     @Column(name = "id", nullable = false)
-    private int id;
+    private String id;
 
     @Column(name = "name")
     private String name;

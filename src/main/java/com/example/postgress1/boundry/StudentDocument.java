@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
 @Builder
-record StudentDocument(@JsonProperty("id") int id,
+record StudentDocument(@JsonProperty("id") String id,
                        @JsonProperty("name") String name,
                        @JsonProperty("second_name") String secondName,
                        @JsonProperty("age") int age) {

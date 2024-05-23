@@ -16,7 +16,7 @@ import java.util.Set;
 public class Department {
 
     @Id
-    private Integer id;
+    private String id;
 
     @Column(name = "name")
     private String name;

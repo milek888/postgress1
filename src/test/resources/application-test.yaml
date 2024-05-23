@@ -2,7 +2,4 @@ logging:
   level:
     root: INFO
     org:
-      flywaydb: DEBUG # potrzebne do logowania co flyway robi np. podczas restoreDatabase()
-
-
-
+      flywaydb: DEBUG # potrzebne do logowania co flyway robi podczas odpalania testow np. ze robi migracje w restoreDatabase();

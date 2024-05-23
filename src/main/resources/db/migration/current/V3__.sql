@@ -1,5 +1,5 @@
 CREATE TABLE teachers (
-  id INT NOT NULL,
+  id VARCHAR(50) NOT NULL,
    name VARCHAR(255) NULL,
    second_name VARCHAR(255) NULL,
    age INT NULL,

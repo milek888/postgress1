@@ -4,11 +4,8 @@ import com.example.postgress1.PostgreSqlRepositorylTest;
 import com.example.postgress1.application.DepartmentRepository;
 import com.example.postgress1.application.StudentRepository;
 import com.example.postgress1.domain.Student;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StudentJpaRepositoryTest extends PostgreSqlRepositorylTest { // todo zastanowic sie jakie testy tu w ogole maja sens bo na razie to jest testowanie hibernat-a i JPA
 
@@ -21,9 +18,9 @@ class StudentJpaRepositoryTest extends PostgreSqlRepositorylTest { // todo zasta
     @Test
     void shouldFindAllStudentsByDepartment() {
         // given
-        var department = departmentRepository.findById(1).orElse(null);
+        var department = departmentRepository.findById("1").orElse(null);
         var student = Student.builder() // todo data mother
-                .id(2)
+                .id("2")
                 .name("Robert")
                 .secondName("Luberda")
                 .age(45)
@@ -35,7 +32,7 @@ class StudentJpaRepositoryTest extends PostgreSqlRepositorylTest { // todo zasta
         studentRepository.save(student);
 
         //then
-        var studentFromDb = studentRepository.findById(2).orElse(null);
+        var studentFromDb = studentRepository.findById(("2")).orElse(null);
         System.out.println("------------------"); // todo figure out assertions check in kitopi repos how they do that
     }
 
@@ -43,9 +40,9 @@ class StudentJpaRepositoryTest extends PostgreSqlRepositorylTest { // todo zasta
     @Test
     void shouldFindAllStudentsByEm() {
         // given
-        var department = departmentRepository.findById(1).orElse(null);
+        var department = departmentRepository.findById("1").orElse(null);
         var student = Student.builder() // todo data mother
-                .id(2)
+                .id("2")
                 .name("Robert")
                 .secondName("Luberda")
                 .age(45)

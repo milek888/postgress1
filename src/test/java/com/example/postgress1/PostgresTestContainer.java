@@ -16,7 +16,7 @@ public class PostgresTestContainer {
 
 
     @DynamicPropertySource
-    void registerProperties(DynamicPropertyRegistry propertyRegistry) {
+    static void registerProperties(DynamicPropertyRegistry propertyRegistry) {
         propertyRegistry.add("spring.datasource.user", () -> postgresContainer.getUsername());
         propertyRegistry.add("spring.datasource.password", () -> postgresContainer.getPassword());
         propertyRegistry.add("spring.datasource.url", () -> postgresContainer.getJdbcUrl());

@@ -10,7 +10,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static com.example.postgress1.infrastructure.TeacherDataMother.aTeacher;
 
 /*
 * Tutaj jest to swietnie opisane
@@ -33,12 +33,7 @@ class TeacherJpaRepositoryTest extends PostgreSqlRepositorylTest {
     @Test
     void shouldFindTeacherById() {
         //given
-        var teacher = Teacher.builder()
-                .id(1)
-                .name("Jozef")
-                .secondName("Piorek")
-                .age(50)
-                .build();
+        var teacher = aTeacher().build();
 
         //when
         teacherRepository.save(teacher);
@@ -46,7 +41,7 @@ class TeacherJpaRepositoryTest extends PostgreSqlRepositorylTest {
         testEntityManager.clear(); // to czysci persistance context dzieki temu mamy gwarancje ze to co w asercji porownamy to bedzie obiekt wyciagniety z bazy a nie z persistance contextu
 
         //then
-        var teacherFromDb = teacherRepository.findById(1).orElse(null);
+        var teacherFromDb = teacherRepository.findById("1").orElse(null);
 
         System.out.println("==="); // todo figure out assertions
     }
@@ -55,12 +50,7 @@ class TeacherJpaRepositoryTest extends PostgreSqlRepositorylTest {
     void shouldFindTeacherBySecondName() {
         //given
         restoreDatabase();
-        var teacher = Teacher.builder()
-                .id(1)
-                .name("Krzysztof")
-                .secondName("Ciesielski")
-                .age(50)
-                .build();
+        var teacher = aTeacher().build();
 
         //when
         teacherRepository.save(teacher);
